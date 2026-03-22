@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+</head>
+<body>
+  <h1>Unit Converter</h1>
+  <input type="number" id="value" placeholder="Enter Value"><br><br>
+  <select id="unit">
+    <option value="m-ft">Meter → Feet</option>
+    <option value="kg-lb">Kg → Lb</option>
+    <option value="c-f">Celsius → Fahrenheit</option>
+  </select><br><br>
+  <button onclick="convert()">Convert</button>
+  <h2 id="result"></h2>
+
+  <script>
+    function convert(){
+      let val = parseFloat(document.getElementById("value").value);
+      let u = document.getElementById("unit").value;
+      let res;
+      if(u=="m-ft") res = val*3.2808;
+      else if(u=="kg-lb") res = val*2.2046;
+      else if(u=="c-f") res = (val*9/5)+32;
+      document.getElementById("result").innerText = "Converted: "+res.toFixed(2);
+    }
+  </script>
+</body>
+</html>
