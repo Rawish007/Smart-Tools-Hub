@@ -4,11 +4,23 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<h1>Welcome to Smart Tools Hub</h1><a href='/profit'>Profit Calculator</a>"
+    return render_template("index.html")
 
 @app.route("/profit")
 def profit():
     return render_template("profit.html")
+
+@app.route("/currency")
+def currency():
+    return render_template("currency.html")
+
+@app.route("/unit")
+def unit():
+    return render_template("unit.html")
+
+@app.route("/loan")
+def loan():
+    return render_template("loan.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
