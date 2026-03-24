@@ -4,48 +4,51 @@ import os
 
 app = Flask(__name__)
 
-# Home Page
+# HOME
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# Profit Calculator
+# TOOLS
 @app.route("/profit")
 def profit():
     return render_template("profit.html")
 
-# Currency Converter
 @app.route("/currency")
 def currency():
     return render_template("currency.html")
 
-# Unit Converter
 @app.route("/unit")
 def unit():
     return render_template("unit.html")
 
-# Loan Calculator
 @app.route("/loan")
 def loan():
     return render_template("loan.html")
 
-# Image Compressor Tool
+# IMAGE COMPRESSOR
 @app.route("/image-compressor", methods=["GET", "POST"])
 def image_compressor():
     if request.method == "POST":
         file = request.files["image"]
-        if file:
-            img = Image.open(file)
-            img = img.convert("RGB")
-            
-            # Save compressed image
-            output_path = "compressed.jpg"
-            img.save(output_path, optimize=True, quality=50)
-
-            return send_file(output_path, as_attachment=True)
-
+        img = Image.open(file)
+        path = "compressed.jpg"
+        img.save(path, optimize=True, quality=30)
+        return send_file(path, as_attachment=True)
     return render_template("image.html")
 
-# Run App
+# EXTRA PAGES
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
