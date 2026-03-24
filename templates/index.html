@@ -1,123 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Smart Tools Hub</title>
+    <title>Smart Tools Hub</title>
 
-<meta name="description" content="Free online tools">
-<meta name="keywords" content="tools, calculator, converter">
+    <meta name="description" content="Free online tools">
+    <meta name="keywords" content="tools, calculator, converter">
 
-<style>
-body {
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background:#fff;
-    color:#111;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
 
-/* NAVBAR */
-.navbar {
-    display:flex;
-    justify-content:space-between;
-    padding:15px 20px;
-    border-bottom:1px solid #ddd;
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.3);
+        }
 
-.logo {
-    font-weight:600;
-    font-size:18px;
-}
+        .logo {
+            font-weight: bold;
+        }
 
-/* HERO */
-.hero {
-    text-align:center;
-    padding:40px 20px;
-}
+        .toggle {
+            cursor: pointer;
+        }
 
-.hero h1 {
-    font-size:28px;
-    margin-bottom:10px;
-}
+        .hero {
+            text-align: center;
+            padding: 30px 15px;
+        }
 
-.hero p {
-    color:#555;
-}
+        .hero h1 {
+            margin-bottom: 10px;
+        }
 
-/* SEARCH */
-.search-box {
-    margin-top:20px;
-}
+        .search-box input {
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 5px;
+            border: none;
+        }
 
-.search-box input {
-    padding:12px;
-    width:80%;
-    max-width:320px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    outline:none;
-}
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
 
-/* TOOLS GRID */
-.tools {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    padding:20px;
-    max-width:900px;
-    margin:auto;
-}
+        .card {
+            background: white;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
 
-/* CARD */
-.card {
-    border:1px solid #ddd;
-    padding:15px;
-    border-radius:8px;
-    transition:0.3s;
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-.card:hover {
-    transform:translateY(-5px);
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+        .card a {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
 
-.card h4 {
-    margin-bottom:10px;
-}
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #ccc;
+        }
 
-.card a {
-    display:block;
-    padding:10px;
-    background:#111;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    font-size:14px;
-}
-
-.card a:hover {
-    background:#333;
-}
-
-/* FOOTER */
-.footer {
-    text-align:center;
-    padding:20px;
-    font-size:12px;
-    color:#777;
-}
-</style>
+        /* Dark mode */
+        .dark {
+            background: #111;
+        }
+    </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">Smart Tools Hub</div>
+    <div class="logo">🚀 Smart Tools Hub</div>
+    <div class="toggle" onclick="toggleMode()">🌙</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
     <h1>All-in-One Smart Tools</h1>
-    <p>Fast • Simple • Free Tools</p>
+    <p>Fast • Free • Powerful Tools</p>
 
     <div class="search-box">
         <input type="text" id="search" onkeyup="searchTools()" placeholder="Search tools...">
@@ -127,39 +114,24 @@ body {
 <!-- TOOLS -->
 <div class="tools">
 
-<div class="card">
-<h4>Profit Calculator</h4>
-<a href="/profit">Open Tool</a>
-</div>
-
-<div class="card">
-<h4>Currency Converter</h4>
-<a href="/currency">Open Tool</a>
-</div>
-
-<div class="card">
-<h4>Unit Converter</h4>
-<a href="/unit">Open Tool</a>
-</div>
-
-<div class="card">
-<h4>Loan Calculator</h4>
-<a href="/loan">Open Tool</a>
-</div>
-
-<div class="card">
-<h4>Image Compressor</h4>
-<a href="/image-compressor">Open Tool</a>
-</div>
+    <div class="card"><h4>Profit Calculator</h4><a href="/profit">Open</a></div>
+    <div class="card"><h4>Currency Converter</h4><a href="/currency">Open</a></div>
+    <div class="card"><h4>Unit Converter</h4><a href="/unit">Open</a></div>
+    <div class="card"><h4>Loan Calculator</h4><a href="/loan">Open</a></div>
+    <div class="card"><h4>Image Compressor</h4><a href="/image-compressor">Open</a></div>
 
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-© 2026 Smart Tools Hub
+    © 2026 Smart Tools Hub | Made by Rawish 💪
 </div>
 
 <script>
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+
 function searchTools() {
     let input = document.getElementById("search").value.toLowerCase();
     let cards = document.getElementsByClassName("card");
