@@ -6,13 +6,19 @@
     <meta name="description" content="Free online tools">
     <meta name="keywords" content="tools, calculator, converter">
 
-    <style>
 <style>
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: #ffffff;
     color: #111;
+    transition: 0.3s;
+}
+
+/* DARK MODE */
+body.dark {
+    background: #111;
+    color: #eee;
 }
 
 /* NAVBAR */
@@ -22,14 +28,10 @@ body {
     align-items: center;
     padding: 18px 25px;
     border-bottom: 1px solid #e5e5e5;
-    background: #fff;
-    position: sticky;
-    top: 0;
 }
 
-.logo {
-    font-size: 18px;
-    font-weight: 600;
+body.dark .navbar {
+    border-color: #333;
 }
 
 /* HERO */
@@ -38,20 +40,15 @@ body {
     padding: 50px 20px;
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
 .hero p {
     color: #666;
 }
 
-/* SEARCH */
-.search-box {
-    margin-top: 25px;
+body.dark .hero p {
+    color: #aaa;
 }
 
+/* SEARCH */
 .search-box input {
     padding: 12px;
     width: 85%;
@@ -59,21 +56,20 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
-    transition: 0.3s;
 }
 
-.search-box input:focus {
-    border-color: black;
+body.dark .search-box input {
+    background: #222;
+    color: white;
+    border-color: #444;
 }
 
-/* TOOLS GRID */
+/* TOOLS */
 .tools {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 18px;
     padding: 25px;
-    max-width: 1000px;
-    margin: auto;
 }
 
 /* CARD */
@@ -82,7 +78,7 @@ body {
     border: 1px solid #e5e5e5;
     padding: 18px;
     border-radius: 12px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .card:hover {
@@ -90,9 +86,9 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* CARD TEXT */
-.card h4 {
-    margin-bottom: 10px;
+body.dark .card {
+    background: #1a1a1a;
+    border-color: #333;
 }
 
 /* BUTTON */
@@ -103,8 +99,6 @@ body {
     color: white;
     text-decoration: none;
     border-radius: 6px;
-    font-size: 14px;
-    transition: 0.3s;
 }
 
 .card a:hover {
@@ -118,7 +112,17 @@ body {
     font-size: 13px;
     color: #777;
 }
-    </style>
+
+body.dark .footer {
+    color: #aaa;
+}
+
+/* TOGGLE BUTTON */
+.toggle {
+    cursor: pointer;
+    font-size: 18px;
+}
+</style>
 </head>
 
 <body>
