@@ -6,13 +6,42 @@
     <meta name="description" content="Free online tools">
     <meta name="keywords" content="tools, calculator, converter">
 
-<style>
+<style> 
+    <script>
+// page load pe theme check
+window.onload = function () {
+    let savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeIcon").innerText = "☀️";
+    } else {
+        document.getElementById("themeIcon").innerText = "🌙";
+    }
+};
+
+// toggle function
+function toggleMode() {
+    let body = document.body;
+    let icon = document.getElementById("themeIcon");
+
+    body.classList.toggle("dark");
+
+    if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        icon.innerText = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        icon.innerText = "🌙";
+    }
+}
+</script>
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: #ffffff;
     color: #111;
-    transition: 0.3s;
+    transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* DARK MODE */
@@ -129,8 +158,8 @@ body.dark .footer {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">🚀 Smart Tools Hub</div>
-    <div class="toggle" onclick="toggleMode()">🌙</div>
+    <div class="logo">Smart Tools Hub</div>
+    <div class="toggle" onclick="toggleMode()" id="themeIcon">🌙</div>
 </div>
 
 <!-- HERO -->
